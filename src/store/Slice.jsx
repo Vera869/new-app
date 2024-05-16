@@ -6,6 +6,7 @@ const countriesSlice = createSlice({
    countries: [],
    isLoading: true,
    countryName: "",
+   currentCountry: [],
   },
   reducers: {
     setCountries(state, action) {
@@ -17,11 +18,11 @@ const countriesSlice = createSlice({
     setCountryName(state, action) {
       state.countryName = action.payload;
     },
-   //  setCountries(state, action) {
-   //    state.countries = action.payload;
-   //  },
+    setCurrentCountry(state, action) {
+      state.currentCountry = action.payload;
+    },
   },
    
 });
 export const countriesReducer = countriesSlice.reducer;
-export const { setCountries, setIsLoading, setCountryName } = countriesSlice.actions;
+export const { setCountries, setIsLoading, setCountryName, setCurrentCountry } = countriesSlice.actions;
