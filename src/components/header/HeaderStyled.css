@@ -1,0 +1,15 @@
+.HeaderBox {
+   margin: 20px;
+   display: flex;
+   flex-direction: row;
+
+   gap: 20px;
+   width: 100%
+}
+.HeaderBox__img {
+   width: 10vw;
+   height: 10vw;
+}
+.HeaderBox__header{
+   color:rgb(62, 176, 233);
+}

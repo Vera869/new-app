@@ -1,14 +1,16 @@
-import "./App.css";
+import "./App.css"
+import { Provider } from "react-redux";
+import { store } from "./store/Store";
+import { AppRoutes } from "./routes";
+
 
 function App() {
-
   return (
-    <>
-      <h1>A new app</h1>
-      <div>
-
-      </div>
-    </>
+    <div className="app">
+      <Provider store={store}>
+        <AppRoutes />
+      </Provider>
+    </div>
   );
 }
 

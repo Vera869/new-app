@@ -1,16 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const nameSlice = createSlice({
-  name: "name",
+const countriesSlice = createSlice({
+  name: "countries",
   initialState: {
-    names: [],
+   countries: [],
+   isLoading: true,
+   countryName: "",
   },
   reducers: {
-    setNames(state, action) {
-      state.names = action.payload;
+    setCountries(state, action) {
+      state.countries = action.payload;
     },
+    setIsLoading(state, action) {
+      state.isLoading = action.payload;
+    },
+    setCountryName(state, action) {
+      state.countryName = action.payload;
+    },
+   //  setCountries(state, action) {
+   //    state.countries = action.payload;
+   //  },
   },
    
 });
-export const nameReducer = nameSlice.reducer;
-export const { setNames } = nameSlice.actions;
+export const countriesReducer = countriesSlice.reducer;
+export const { setCountries, setIsLoading, setCountryName } = countriesSlice.actions;
