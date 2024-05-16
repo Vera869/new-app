@@ -2,9 +2,6 @@
    color: chartreuse;
 }
 .countries__list {
-   /* display: flex;
-   flex-direction: column;
-   gap: 15px; */
    columns: 2;
    -webkit-columns: 2;
    -moz-columns: 2;
@@ -19,9 +16,3 @@
    width: 5vw;
    height: 5vh;
 }
-/* 
-.button {
-   width: 300px;
-   height: 26px;
-   color: ;
-} */
