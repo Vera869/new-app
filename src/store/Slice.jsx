@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const countriesSlice = createSlice({
   name: "countries",
   initialState: {
-   countries: [],
-   isLoading: true,
-   countryName: "",
-   currentCountry: [],
+    countries: [],
+    isLoading: true,
+    countryName: "",
+    currentCountry: [],
   },
   reducers: {
     setCountries(state, action) {

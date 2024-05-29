@@ -1,8 +1,17 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Для запуска проекта в режиме разработки:
+-- Выполните команду npm run dev;
+-- Перейдите по ссылке  ➜  Local:   http://localhost:5173/
 
-Currently, two official plugins are available:
+Для сборки проекта:
+-- Выполните команду npm run build;
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для запуска проекта в режиме продакшн:
+-- Выполните сборку приложения, если ранее внесли изменения;
+-- Выполните команду npm run preview;
+-- Перейдите по ссылке   ➜  Local:   http://localhost:4173/
+
+Для закрытия проекта в любом режиме:
+-- Выполните команду ctrl+c;
+-- yes;

@@ -1,7 +1,24 @@
+/* Main Page */
+.loading__img {
+   width: 20vw;
+   height: 20vw;
+   background-color: #242424;
+}
+.loading__message {
+   font-size: 3vw;
+}
+.error__message {
+   font-size: 2.5vw;
+   color: red;
+}
 .countries__header {
+   font-size: 4vw;
    color: chartreuse;
+   margin-top: 0;
 }
 .countries__list {
+   margin: 0;
+   padding: 0;
    columns: 2;
    -webkit-columns: 2;
    -moz-columns: 2;
@@ -9,10 +26,36 @@
 .countries__item {
    display: flex;
    flex-direction: row;
-   gap: 25px;
+   gap: 1vw;
    margin-bottom: 15px;
 }
 .item__img {
-   width: 5vw;
-   height: 5vh;
+   width: 8vw;
+   height: 5vw;
+}
+/* Country Page */
+.country {
+   padding: 10px 20px;
+}
+.country__img {
+   width: 20vw;
+   height: 12vw;
+}
+.country__header {
+   margin: 0.5vw;
+   font-size: 5vw;
+   color: aqua;
+}
+.country__flagAlt {
+   font-size: 2.7vw;
+   width: 80vw;
+}
+.country__list{
+   display: flex;
+   flex-direction: column;
+   gap: 1.5vw;
+   font-size: 3vw;
+}
+.country__item::marker {
+   color: aquamarine;
 }
