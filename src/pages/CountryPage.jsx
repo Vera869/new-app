@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setCurrentCountry } from "../store/Slice";
-import { getCountry } from "../api";
+import { getCountry } from "../Api.jsx";
 import { useNavigate } from "react-router-dom";
 import "./PagesStyled.css";
 

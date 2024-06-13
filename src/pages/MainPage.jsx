@@ -1,6 +1,6 @@
 import "./PagesStyled.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries } from "../api.jsx";
+import { getCountries } from "../Api.jsx";
 import { setCountries, setCountryName, setIsLoading } from "../store/Slice.jsx";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
