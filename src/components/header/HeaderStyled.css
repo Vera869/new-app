@@ -6,6 +6,11 @@
    gap: 20px;
    width: 100%
 }
+
+.HeaderBox:hover {
+   cursor: pointer;
+}
+
 .HeaderBox__img {
    width: 8vw;
    height: 8vw;
