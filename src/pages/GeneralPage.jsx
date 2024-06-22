@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setAllItems, setErrorMessage, setIsLoad } from "../../store/Slice";
+import { setAllItems, setErrorMessage, setIsLoad } from "../store/Slice";
 
-import  "../../../src/pages/pagesStyle/PagesStyle.css";
+import  "./PagesStyle.css";
 
 export const GeneralPage = () => {
   const dispatch = useDispatch();
@@ -27,13 +27,16 @@ export const GeneralPage = () => {
   
 
   return(
-    <div className="contant-box"> 
-      <h1>All ouers products</h1>
-      {isLoad? <p className="p">LOADING</p> : 
+    <div className="container"> 
+      <h2 className="content-header">All ouers products</h2>
+      {isLoad?( <>
+        <p className="content-loader">LOADING</p> 
+        <img src="../../../src/assets/img/loader-1.gif" alt="LOADING"/>
+      </>): 
         allItems.map((item, index) => {
           return(
             <div key={index}>
-              <img className="image" src={`${item.image}`}/>
+              <img className="content-image" src={`${item.image}`}/>
               <p className="p">{item.price}</p>
               <p className="p">{item.description}</p>
               <p className="p">{item.category}</p>

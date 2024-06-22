@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { LayoutPage } from "./pages/layoutPage/LayoutPage";
-import { GeneralPage } from "./pages/generalPage/GeneralPage";
-import { ItemPage } from "./pages/itemPage/ItemPage";
-import { NotFoundPage } from "./pages/notFoundPage/NotFoundPage";
+import { LayoutPage } from "./pages/LayoutPage";
+import { GeneralPage } from "./pages/GeneralPage";
+import { ItemPage } from "./pages/ItemPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export const AppRoutes = () => {
 

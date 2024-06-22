@@ -1,3 +1,4 @@
+import  "./PagesStyle.css";
 
 export const ItemPage = () => {
   return(
