@@ -1,10 +1,14 @@
 import { Outlet } from "react-router-dom";
+import  "../pagesStyle/PagesStyle.css";
+import { Header } from "../../components/header/HeaderBox";
 
 export const LayoutPage = () => {
-  return(
+  return(<>
+    <Header/>  
     <div className="container">
-      <header className="header"></header>         
+            
       <Outlet/>
     </div>
+  </>
   );
 };

@@ -1,16 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const nameSlice = createSlice({
-  name: "name",
+const itemsSlice = createSlice({
+  name: "items",
   initialState: {
-    names: [],
+    allItems: [],
+    isLoad: true,
+    errorMessage: "",
   },
   reducers: {
-    setNames(state, action) {
-      state.names = action.payload;
+    setAllItems(state, action) {
+      state.allItems = action.payload;
+    },
+    setIsLoad(state, action) {
+      state.isLoad = action.payload;
+    },
+    setErrorMessage(state, action) {
+      state.errorMessage = action.payload;
     },
   },
    
 });
-export const nameReducer = nameSlice.reducer;
-export const { setNames } = nameSlice.actions;
+export const itemsReducer = itemsSlice.reducer;
+export const { setAllItems, setIsLoad, setErrorMessage } = itemsSlice.actions;
