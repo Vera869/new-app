@@ -29,21 +29,26 @@ export const GeneralPage = () => {
   return(
     <div className="container"> 
       <h2 className="content-header">All ouers products</h2>
-      {isLoad?( <>
-        <p className="content-loader">LOADING</p> 
-        <img src="../../../src/assets/img/loader-1.gif" alt="LOADING"/>
-      </>): 
-        allItems.map((item, index) => {
-          return(
-            <div key={index}>
-              <img className="content-image" src={`${item.image}`}/>
-              <p className="p">{item.price}</p>
-              <p className="p">{item.description}</p>
-              <p className="p">{item.category}</p>
-              <p className="p">{item.title}</p>
-            </div>
-          );
-        })
+      {isLoad?(<img className="content-loader" src="../../../src/assets/img/loader-1.gif" alt="LOADING"/>): 
+        <div className="content-box">
+          {allItems.map((item, index) => {
+            return(
+              <div className="content-item" key={index}>
+                <div className="content-images">
+                  <img className="content-image" src={`${item.image}`}/>
+                  <div className="content-icons">
+                    <img className="content-like" src="../../../src/assets/img/like.png"/>
+                    <img className="content-delete" src="../../../src/assets/img/dislike.png"/>
+                  </div>
+                </div>
+                <p className="content-descriptions">{item.title}</p>
+                <p className="content-descriptions">price: {item.price}</p>
+                <p className="content-descriptions">{item.description}</p>
+   
+              </div>
+            );
+          })}
+        </div>
       }
       <p>{errorMessage}</p>
     </div>
