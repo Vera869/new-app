@@ -31,7 +31,6 @@ body {
 
 h1 {
   font-size: 3.2em;
-  /* line-height: 1.1; */
 }
 
 button {
@@ -51,7 +50,7 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  border: 1px solid #bef574;
+  border: 2px solid #bef574;
   background-color: #9f6fcf;
   outline: none;
 }
