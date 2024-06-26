@@ -11,7 +11,7 @@ export const AppRoutes = () => {
       <Route path="/" element={<LayoutPage/>}>
         <Route path="/" element={<GeneralPage/>}></Route>
         <Route path="*" element={<NotFoundPage />}></Route>
-        <Route path="/: item" element={<ItemPage/>}></Route>
+        <Route path="/:id" element={<ItemPage/>}></Route>
         <Route path="/" element={<LayoutPage/>}></Route>
       </Route>
     </Routes>

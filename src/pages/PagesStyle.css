@@ -15,6 +15,7 @@
 .content-header{
   font-size:xx-large;
   color: #55280c;
+  margin: 10px 0;
 }
 
 .content-loader {
@@ -54,6 +55,7 @@
    height: 10vw;
    border-radius: 10%;
    border: 3px solid #bef574;
+   cursor: pointer;
  }
 
  .content-icons{
@@ -63,8 +65,9 @@
  }
 .content-like, 
 .content-delete {
-  width: 20px;
-  height: 20px;
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
 }
  .content-descriptions {
     white-space: nowrap;

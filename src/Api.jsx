@@ -1,3 +1,21 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const getProructsApi = createApi({
+  reducerPath: "getProructsApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://fakestoreapi.com/",
+  }),
+  endpoints: (builder) => ({
+    getAllProducts: builder.query({
+      query: () => ({
+        url: "products",
+      }),
+    }),
+  })
+});
+
+export const useGetAllProductsQuery = getProructsApi;
+export default getProructsApi.reducer;
 
 // export async function getAllItems(){
 //   const response = await fetch(`${host}/products`);

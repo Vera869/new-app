@@ -5,6 +5,7 @@
    align-items: center;
    gap: 20px;
    border-radius: 0 0 20px 20px;
+   position:-ms-page;
 }
 .header-icon {
    margin-left: 20px;
