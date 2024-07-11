@@ -24,6 +24,7 @@
    -moz-columns: 2;
 }
 .countries__item {
+   width: 30vw;
    display: flex;
    flex-direction: row;
    gap: 1vw;
@@ -32,6 +33,11 @@
 .item__img {
    width: 8vw;
    height: 5vw;
+}
+.item__name {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }
 /* Country Page */
 .country {
