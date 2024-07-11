@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCurrentItemId, setItem } from "../../store/Slice";
+import { setCurrentItemId, setFavItems, setItem } from "../../store/Slice";
 
 export const Cards = () => {
   const dispatch = useDispatch();
@@ -9,6 +9,8 @@ export const Cards = () => {
   const allItems = useSelector((state) => state.items.allItems);
   const favItems = useSelector((state) => state.items.favItems);
   const isFiltered = useSelector((state) => state.items.isFiltered);
+  //const currentItem = useSelector((state) => state.items.item);
+
   const dataItems = isFiltered ? favItems : allItems;
 
   const handleItemPage = (id,) => {
@@ -22,14 +24,28 @@ export const Cards = () => {
     console.log("delete");
   };
 
-  const handleLike = () => {
+  const handleLike = (id) => {
     console.log("Like/Dislike");
+    let currentItem = favItems.filter((el) => el.id === id);
+    console.log(currentItem);
+    if(currentItem.length === 0 || currentItem === undefined) {
+      const currentItem = allItems.filter((el) => el.id === id);
+      const newFavItems = favItems.concat(currentItem[0]);
+      dispatch(setFavItems(newFavItems));
+    //localStorage.setItem("favItems", newFavItems);
+    } else {
+      const newFavItems = favItems.filter((el) => el.id !== id);
+      console.log(newFavItems);
+      dispatch(setFavItems(newFavItems));
+      //localStorage.setItem("favItems", newFavItems);
+    }
   };
 
   return (
     <div className="content-box">
       {dataItems.map((item) => {
         const id = item.id;
+        // console.log(favItems);
         return(
           <div className="content-item" key={id} >
             <div className="content-images">

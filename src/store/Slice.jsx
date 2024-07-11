@@ -24,15 +24,19 @@ const itemsSlice = createSlice({
     setIsFiltered(state) {
       state.isFiltered = !state.isFiltered;
     },
-    setFavItems(state) {
-      const items = state.allItems;
-      const id = state.currentItemId;
-      const favItems = state.favItems;
-      if(id) {
-        const currentItem = items.filter((el) => el.id === id);
-        state.favItems = favItems.push(currentItem);
-        localStorage.setItem("favItems", state.favItems);
-      }
+    setFavItems(state, action) {
+      state.favItems = action.payload;
+      // const items = state.allItems;
+      // const id = state.currentItemId;
+      // let favItems = state.favItems;
+      // console.log(items);
+      // if(id) {
+      //   const currentItem = items.filter((el) => el.id === id);
+      //   console.log(currentItem);
+      //   const newFavItems = favItems.push(currentItem);
+      //   state.favItems = action.payload.newFavItems;
+      //   localStorage.setItem("favItems", state.favItems);
+      // }
     },
     setCurrentItemId(state, action) {
       state.currentItemId = action.payload;
