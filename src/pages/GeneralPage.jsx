@@ -21,7 +21,7 @@ export const GeneralPage = () => {
   
   useEffect(()=> {
     const getContent = () => {
-      fetch("https://fakestoreapi.com/products")
+      fetch("https://fakestoreapi.com/products/category/women's clothing")
         .then(res=> res.json())
         .then(json =>{
           dispatch(setAllItems(json));
@@ -33,22 +33,6 @@ export const GeneralPage = () => {
     getContent();
   },[dispatch]);
 
-  // const handleItemPage = (id, e) => {
-  //   e.preventDefault();
-  //   dispatch(setCurrentItemId(id));
-  //   dispatch(setItem(id));
-  //   navigate(`/${id}`);
-  // };
-
-  // const handleDelete = (event) => {
-  //   event.stopPropagation();
-  //   console.log("delete");
-  // };
-
-  // const handleLike = (event) => {
-  //   event.stopPropagation();
-  //   console.log("Like/Dislike");
-  // };
   return(
     <div className="container"> 
       <h2 className="content-header">Best offer of the month</h2>
@@ -56,28 +40,6 @@ export const GeneralPage = () => {
         <>
           <FilterBox/>
           <Cards/>
-          {/* <div className="content-box">
-            {allItems.map((item) => {
-              const id = item.id;
-              return(
-                <div className="content-item" key={id}  onClick={() => handleItemPage(id)}>
-                  <div className="content-images">
-                    <img className="content-image" src={`${item.image}`}/>
-                    <div className="content-icons">
-                      <img className="content-like" onClick={() => handleDelete(id)} src="../../../src/assets/img/handleDelete.png"/>
-                      <img className="content-delete" onClick={() => handleLike(id)} src="../../../src/assets/img/dislike.png"/>
-                    </div>
-                  </div>
-                  <div >
-                    <p className="content-descriptions">{item.title}</p>
-                    <p className="content-descriptions">price: {item.price}</p>
-                    <p className="content-descriptions">{item.description}</p>
-                  </div>
-   
-                </div>
-              );
-            })}
-          </div> */}
         </>
       }
       <p>{errorMessage}</p>

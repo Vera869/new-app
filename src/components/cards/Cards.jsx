@@ -8,24 +8,21 @@ export const Cards = () => {
  
   const allItems = useSelector((state) => state.items.allItems);
   const favItems = useSelector((state) => state.items.favItems);
-  const errorMessage = useSelector((state) => state.items.errorMessage);
   const isFiltered = useSelector((state) => state.items.isFiltered);
   const dataItems = isFiltered ? favItems : allItems;
 
-  const handleItemPage = (id) => {
-   //  e.preventDefault();
+  const handleItemPage = (id,) => {
+    //e.preventDefault();
     dispatch(setCurrentItemId(id));
     dispatch(setItem(id));
     navigate(`/${id}`);
   };
 
-  const handleDelete = (event) => {
-    event.stopPropagation();
+  const handleDelete = () => {
     console.log("delete");
   };
 
-  const handleLike = (event) => {
-    event.stopPropagation();
+  const handleLike = () => {
     console.log("Like/Dislike");
   };
 
@@ -34,15 +31,15 @@ export const Cards = () => {
       {dataItems.map((item) => {
         const id = item.id;
         return(
-          <div className="content-item" key={id}  onClick={() => handleItemPage(id)}>
+          <div className="content-item" key={id} >
             <div className="content-images">
-              <img className="content-image" src={`${item.image}`}/>
+              <img className="content-image" src={`${item.image}`}  onClick={() =>  handleItemPage(id)}/>
               <div className="content-icons">
                 <img className="content-like" onClick={() => handleDelete(id)} src="../../../src/assets/img/handleDelete.png"/>
                 <img className="content-delete" onClick={() => handleLike(id)} src="../../../src/assets/img/dislike.png"/>
               </div>
             </div>
-            <div >
+            <div>
               <p className="content-descriptions">{item.title}</p>
               <p className="content-descriptions">price: {item.price}</p>
               <p className="content-descriptions">{item.description}</p>
