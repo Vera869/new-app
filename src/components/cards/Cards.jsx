@@ -33,7 +33,6 @@ export const Cards = () => {
   const handleLike = (id) => {
     console.log("Like/Dislike");
     let currentItem = favItems.filter((el) => el.id === id);
-    console.log(currentItem);
     if(currentItem.length === 0 || currentItem === undefined) {
       const currentItem = allItems.filter((el) => el.id === id);
       const newFavItems = favItems.concat(currentItem[0]);
@@ -51,14 +50,18 @@ export const Cards = () => {
     <div className="content-box">
       {dataItems.map((item) => {
         const id = item.id;
-        // console.log(favItems);
+        let currentItem = favItems.filter((el) => el.id === id);
+        console.log(currentItem);
+        const imgUrlDislike = "../../../src/assets/img/dislike.png";
+        const imgUrlLike = "../../../src/assets/img/like.png";
+        const imgUrl = currentItem.length === 0 ? imgUrlDislike : imgUrlLike;
         return(
           <div className="content-item" key={id} >
             <div className="content-images">
               <img className="content-image" src={`${item.image}`}  onClick={() =>  handleItemPage(id)}/>
               <div className="content-icons">
                 <img className="content-like" onClick={() => handleDelete(id)} src="../../../src/assets/img/handleDelete.png"/>
-                <img className="content-delete" onClick={() => handleLike(id)} src="../../../src/assets/img/dislike.png"/>
+                <img className="content-delete" onClick={() => handleLike(id)} src={imgUrl}/>
               </div>
             </div>
             <div>
