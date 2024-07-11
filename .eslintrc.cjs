@@ -20,7 +20,7 @@ module.exports = {
     quotes: ["error", "double"],
     semi: ["error", "always"], 
     indent: ["error", 2], 
-    //"no-console": "error",
+    "no-console": "error",
     "no-unused-vars": "warn",
     "eol-last": "off",
   },

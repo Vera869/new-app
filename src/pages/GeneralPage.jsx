@@ -1,28 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setAllItems, setCurrentItemId, setErrorMessage, setIsLoad, setItem } from "../store/Slice";
-
-import  "./PagesStyle.css";
+import { setAllItems, setErrorMessage, setIsLoad} from "../store/Slice";
 import { FilterBox } from "../components/filter/FilterBox";
-import { useNavigate } from "react-router-dom";
 import { Cards } from "../components/cards/Cards";
+import  "./PagesStyle.css";
 
 export const GeneralPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const isLoad = useSelector((state) => state.items.isLoad);
-  const allItems = useSelector((state) => state.items.allItems);
-  const favItems = useSelector((state) => state.items.favItems);
   const errorMessage = useSelector((state) => state.items.errorMessage);
-  const isFiltered = useSelector((state) => state.items.isFiltered);
-
-  //const dataItems = isFiltered ? favItems : allItems;
   
   useEffect(()=> {
     const getContent = () => {
+      //Получаем данные с сервера и сохраняем в store
       fetch("https://fakestoreapi.com/products/category/women's clothing")
-        .then(res=> res.json())
+        .then(res => res.json())
         .then(json =>{
           dispatch(setAllItems(json));
           dispatch(setIsLoad(false));
@@ -42,7 +35,7 @@ export const GeneralPage = () => {
           <Cards/>
         </>
       }
-      <p>{errorMessage}</p>
+      <p className="content-header">{errorMessage}</p>
     </div>
   );
 };

@@ -26,17 +26,6 @@ const itemsSlice = createSlice({
     },
     setFavItems(state, action) {
       state.favItems = action.payload;
-      // const items = state.allItems;
-      // const id = state.currentItemId;
-      // let favItems = state.favItems;
-      // console.log(items);
-      // if(id) {
-      //   const currentItem = items.filter((el) => el.id === id);
-      //   console.log(currentItem);
-      //   const newFavItems = favItems.push(currentItem);
-      //   state.favItems = action.payload.newFavItems;
-      //   localStorage.setItem("favItems", state.favItems);
-      // }
     },
     setCurrentItemId(state, action) {
       state.currentItemId = action.payload;
@@ -50,16 +39,8 @@ const itemsSlice = createSlice({
         state.item = currentItem;
       }
     },
-    setDeleteItem(state) {
-      const items = state.allItems;
-      const id = state.currentItemId;
-      if(id) {
-        const newItems = items.filter((el) => el.id !== id);
-        state.allItems = newItems;
-      }
-    },
   },
    
 });
 export const itemsReducer = itemsSlice.reducer;
-export const { setAllItems, setIsLoad, setErrorMessage, setIsFiltered, setCurrentItemId, setItem,setFavItems, setDeleteItem } = itemsSlice.actions;
+export const { setAllItems, setIsLoad, setErrorMessage, setIsFiltered, setCurrentItemId, setItem,setFavItems} = itemsSlice.actions;

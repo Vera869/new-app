@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import "./FilterBoxStyle.css";
 import { setIsFiltered } from "../../store/Slice";
+import "./FilterBoxStyle.css";
 
 export const FilterBox = () => {
   const dispatch = useDispatch();

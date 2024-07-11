@@ -1,59 +1,60 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setAllItems, setCurrentItemId, setFavItems, setItem } from "../../store/Slice";
+import { setAllItems, setCurrentItemId, setFavItems, setIsFiltered, setItem } from "../../store/Slice";
 
 export const Cards = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
  
+  //Получаем данные из store
   const allItems = useSelector((state) => state.items.allItems);
   const favItems = useSelector((state) => state.items.favItems);
   const isFiltered = useSelector((state) => state.items.isFiltered);
-  //const currentItem = useSelector((state) => state.items.item);
-
+  //Назначаем нужный массив в зависимости от фильтрации
   const dataItems = isFiltered ? favItems : allItems;
 
-  const handleItemPage = (id,) => {
-    //e.preventDefault();
+  const handleItemPage = (id) => {
+    //Передаём данные в store и переходим на страницу товара
     dispatch(setCurrentItemId(id));
     dispatch(setItem(id));
     navigate(`/${id}`);
   };
 
   const handleDelete = (id) => {
-    console.log("delete");
+    //Удаляем нужный элимент из обоих массивов и сохраняем обновлённые данные в store
     const newAllItems = allItems.filter((el) => el.id !== id);
     const newFavItems = favItems.filter((el) => el.id !== id);
     dispatch(setAllItems(newAllItems));
     dispatch(setFavItems(newFavItems));
-    //localStorage.setItem("allItems", newAllItems);
-    //localStorage.setItem("favItems", newFavItems);
   };
 
   const handleLike = (id) => {
-    console.log("Like/Dislike");
+    //Проверяем, находится ли элемент в массиве избранных продуктов
     let currentItem = favItems.filter((el) => el.id === id);
     if(currentItem.length === 0 || currentItem === undefined) {
+      //Если нет - добавляем в массив избранных продуктов, сохраняем в store
       const currentItem = allItems.filter((el) => el.id === id);
       const newFavItems = favItems.concat(currentItem[0]);
       dispatch(setFavItems(newFavItems));
-    //localStorage.setItem("favItems", newFavItems);
     } else {
+      //Если да - удаляем из массива избранных продуктов, сохраняем в store
       const newFavItems = favItems.filter((el) => el.id !== id);
-      console.log(newFavItems);
       dispatch(setFavItems(newFavItems));
-      //localStorage.setItem("favItems", newFavItems);
     }
   };
 
   return (
     <div className="content-box">
-      {dataItems.map((item) => {
+      {favItems.length === 0 && isFiltered ? <div className="">
+        <h4 className="content-header">No favorites products</h4>
+        <button className="item-button" onClick={() => dispatch(setIsFiltered())}>Go to home page</button>;
+      </div> : dataItems.map((item) => {
         const id = item.id;
-        let currentItem = favItems.filter((el) => el.id === id);
-        console.log(currentItem);
         const imgUrlDislike = "../../../src/assets/img/dislike.png";
         const imgUrlLike = "../../../src/assets/img/like.png";
+        //Проверяем, находится ли элемент в массиве избранных продуктов
+        let currentItem = favItems.filter((el) => el.id === id);
+        //Назначаем соответствующую картинку(Like/Dislike)
         const imgUrl = currentItem.length === 0 ? imgUrlDislike : imgUrlLike;
         return(
           <div className="content-item" key={id} >
