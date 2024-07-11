@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCurrentItemId, setFavItems, setItem } from "../../store/Slice";
+import { setAllItems, setCurrentItemId, setFavItems, setItem } from "../../store/Slice";
 
 export const Cards = () => {
   const dispatch = useDispatch();
@@ -20,8 +20,14 @@ export const Cards = () => {
     navigate(`/${id}`);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (id) => {
     console.log("delete");
+    const newAllItems = allItems.filter((el) => el.id !== id);
+    const newFavItems = favItems.filter((el) => el.id !== id);
+    dispatch(setAllItems(newAllItems));
+    dispatch(setFavItems(newFavItems));
+    //localStorage.setItem("allItems", newAllItems);
+    //localStorage.setItem("favItems", newFavItems);
   };
 
   const handleLike = (id) => {
