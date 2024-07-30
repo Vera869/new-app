@@ -5,7 +5,7 @@ export const HeaderBox = () => {
   const navigate = useNavigate();
   return (
     <div className="HeaderBox" onClick={()=> navigate("/")}>
-      <img className="HeaderBox__img" src="../public/iconGlobe.png" alt="countries"/>
+      <img className="HeaderBox__img" src="../../public/iconGlobe.png" alt="countries"/>
       <h1 className="HeaderBox__header">COUNTRIES </h1>
     </div>
   );
