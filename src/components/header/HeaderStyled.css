@@ -11,10 +11,6 @@
    cursor: pointer;
 }
 
-.HeaderBox__img {
-   width: 8vw;
-   height: 8vw;
-}
 .HeaderBox__header{
    font-size: 6vw;
    color:rgb(62, 176, 233);
