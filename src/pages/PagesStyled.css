@@ -29,6 +29,8 @@
    flex-direction: row;
    gap: 1vw;
    margin-bottom: 15px;
+   -webkit-animation: fade-in-fwd 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: fade-in-fwd 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 .item__img {
    width: 8vw;
@@ -46,6 +48,8 @@
 .country__img {
    width: 20vw;
    height: 12vw;
+   -webkit-animation: tilt-in-left-1 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: tilt-in-left-1 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 .country__header {
    margin: 0.5vw;
@@ -65,3 +69,70 @@
 .country__item::marker {
    color: aquamarine;
 }
+.button {
+   outline: none;
+   border: none;
+}
+.button:hover {
+   color: whitesmoke;
+   background-color: #0000;
+   border: 4px solid aquamarine;
+}
+.button:active {
+   outline: none;
+   border: none;
+   color: aquamarine;
+   background-color: #0000;
+   border: 4px solid aquamarine;
+}
+
+@-webkit-keyframes fade-in-fwd {
+   0% {
+     -webkit-transform: translateZ(-80px);
+             transform: translateZ(-80px);
+     opacity: 0;
+   }
+   100% {
+     -webkit-transform: translateZ(0);
+             transform: translateZ(0);
+     opacity: 1;
+   }
+ }
+ @keyframes fade-in-fwd {
+   0% {
+     -webkit-transform: translateZ(-80px);
+             transform: translateZ(-80px);
+     opacity: 0;
+   }
+   100% {
+     -webkit-transform: translateZ(0);
+             transform: translateZ(0);
+     opacity: 1;
+   }
+ }
+ 
+ @-webkit-keyframes tilt-in-left-1 {
+   0% {
+     -webkit-transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+             transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+     opacity: 0;
+   }
+   100% {
+     -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+             transform: rotateX(0deg) translateX(0) skewX(0deg);
+     opacity: 1;
+   }
+ }
+ @keyframes tilt-in-left-1 {
+   0% {
+     -webkit-transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+             transform: rotateX(-30deg) translateX(-300px) skewX(-30deg);
+     opacity: 0;
+   }
+   100% {
+     -webkit-transform: rotateX(0deg) translateX(0) skewX(0deg);
+             transform: rotateX(0deg) translateX(0) skewX(0deg);
+     opacity: 1;
+   }
+ }
+ 

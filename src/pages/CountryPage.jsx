@@ -29,9 +29,12 @@ export const CountryList = () => {
   return (
     <>
       {isLoading? <>
-        <p>Пожалуйста, подождите, скоро здесь будет описание выбранной страны.</p> 
-        <p className="error__message">{errorApi}</p>
-        <button className="button" onClick={() => navigate("/")}>Вернуться на главную</button>
+        {errorApi[0]? 
+          <><p className="error__message">{errorApi}</p>
+            <button className="button" onClick={() => navigate("/") }>Вернуться на главную</button>
+          </> 
+          : <p>Пожалуйста, подождите, скоро здесь будет описание выбранной страны.</p>
+        }
       </>
         : <div className="country">
           <p className="error__message">{errorApi}</p>
