@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setAllItems, setCurrentItemId, setFavItems, setIsFiltered, setItem } from "../../store/Slice";
+import { setAllItems, setCurrentItemId, setFavItems, setIsFiltered } from "../../store/Slice";
 
 export const Cards = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,6 @@ export const Cards = () => {
   const handleItemPage = (id) => {
     //Передаём данные в store и переходим на страницу товара
     dispatch(setCurrentItemId(id));
-    dispatch(setItem(id));
     navigate(`/${id}`);
   };
 
@@ -67,7 +66,7 @@ export const Cards = () => {
             </div>
             <div>
               <p className="content-descriptions">{item.title}</p>
-              <p className="content-descriptions">price: {item.price}</p>
+              <p className="content-descriptions">price: <span className="span-numbers">{item.price}</span></p>
               <p className="content-descriptions">{item.description}</p>
             </div>
 

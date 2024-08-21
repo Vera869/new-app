@@ -4,7 +4,6 @@ const itemsSlice = createSlice({
   name: "items",
   initialState: {
     allItems: [],
-    item: [],
     favItems: [],
     isLoad: true,
     errorMessage: "",
@@ -31,16 +30,8 @@ const itemsSlice = createSlice({
       state.currentItemId = action.payload;
       localStorage.setItem("id", state.currentItemId);
     },
-    setItem(state) {
-      const items = state.allItems;
-      const id = state.currentItemId;
-      if(id) {
-        const currentItem = items.filter((el) => el.id === id);
-        state.item = currentItem;
-      }
-    },
   },
    
 });
 export const itemsReducer = itemsSlice.reducer;
-export const { setAllItems, setIsLoad, setErrorMessage, setIsFiltered, setCurrentItemId, setItem,setFavItems} = itemsSlice.actions;
+export const { setAllItems, setIsLoad, setErrorMessage, setIsFiltered, setCurrentItemId, setFavItems} = itemsSlice.actions;
