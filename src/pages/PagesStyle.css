@@ -19,7 +19,8 @@
 }
 
 .content-loader {
-  width: 25vw;
+  padding: 10vw;
+  width: 20vw;
 }
 
 .content-box{
@@ -44,13 +45,12 @@
 
 .content-images {
   display: flex;
-  /* gap: 13vw; */
   justify-content: space-between;
 }
 
 .content-image {
    width: 10vw;
-   height: 10vw;
+   height: 13vw;
    border-radius: 10%;
    border: 3px solid #bef574;
    cursor: pointer;
@@ -77,11 +77,10 @@
  }
 
  .item{
-  width: 80vw;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0 20px 50px 40px;
+  padding: 20px 70px 50px 70px;
  }
  .item-image{
   width: 40vw;
@@ -92,4 +91,9 @@
  }
  .item-button{
   width: 40vw;
+ }
+
+ .span-numbers {
+  font-weight: bold;
+  color: rgb(93, 9, 93);
  }
